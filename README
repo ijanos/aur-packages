@@ -1,1 +1,11 @@
 A meta-repository to contain my AUR git repositories as git subtrees.
+
+Workflow
+========
+
+    git remote add -f $pkgname "ssh://aur@aur.archlinux.org/$pkgname.git"
+    git subtree add --prefix "aur/$pkgname" $pkgname master
+    echo bla bla bla > aur/$pkgname/PKGBUILD
+    git commit -m "Added new $pkgname"
+    git subtree push --prefix "aur/$pkgname" $pkgname master
+    git push origin master
